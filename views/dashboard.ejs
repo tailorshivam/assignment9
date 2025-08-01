@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include('partials/head') %>
+  <title>Dashboard</title>
+</head>
+<body class="bg-light">
+  <div class="container py-5 text-center">
+    <h2 class="mb-4">Welcome, <%= user.name %> 🎉</h2>
+    <p><strong>Email:</strong> <%= user.email %></p>
+    <a href="/auth/logout" class="btn btn-danger mt-4">Logout</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('partials/head') %>
+        <title>Login</title>
+</head>
+
+<body class="bg-light">
+    <div class="container py-5">
+        <h2 class="text-center mb-4">Login</h2>
+        <form method="POST" action="/auth/login" class="card p-4 shadow-sm">
+            <% if (typeof error !=='undefined' && error) { %>
+                <div class="alert alert-danger mt-3">
+                    <%= error %>
+                </div>
+                <% } %>
+                    <div class="mb-3">
+                        <label>Email</label>
+                        <input type="email" name="email" class="form-control" required />
+                    </div>
+                    <div class="mb-3">
+                        <label>Password</label>
+                        <input type="password" name="password" id="login-pass" class="form-control" required />
+                        <small><input type="checkbox" onclick="togglePass('login-pass')"> Show Password</small>
+                    </div>
+                    <button type="submit" class="btn btn-success w-100">Login</button>
+                    <p class="text-center mt-3">New user? <a href="/auth/register">Register</a></p>
+        </form>
+    </div>
+
+    <script>
+        function togglePass(id) {
+            const x = document.getElementById(id);
+            x.type = x.type === "password" ? "text" : "password";
+        }
+    </script>
+</body>
+
+</html>
