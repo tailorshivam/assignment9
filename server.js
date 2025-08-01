@@ -28,6 +28,10 @@ async function connectDB() {
 }
 connectDB();
 
+app.get('/', (req, res) => {
+  res.redirect('/auth/login');
+});
+
 app.get('/dashboard', protect, async (req, res) => {
     const user = await User.findById(req.user.id);
     res.render('dashboard', { user });
